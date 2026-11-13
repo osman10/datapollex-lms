@@ -17,7 +17,7 @@ export default function Footer() {
             {/* Column 1: Interesting Links */}
             <div className="flex flex-col justify-center h-full">
               <Logo />
-              <h1 className='text-white px-4 text-xl'>MERN stact developer</h1>
+              <h1 className='text-white px-4 text-xl'>A Learning platform</h1>
             </div>
 
             {/* Column 2: Socials */}
@@ -76,10 +76,9 @@ export default function Footer() {
                 </h3>
                 <ul className="space-y-4 text-xs text-light-grey hover:text-light-grey">
                   <li><Link href="/" className='hover:text-light-orange transation'>Home</Link></li>
-                  <li><Link href="/about" className='hover:text-light-orange transation'>About Me</Link></li>
-                  <li><Link href="/skils" className='hover:text-light-orange transation'>Skills</Link></li>
-                  <li><Link href="/projects" className='hover:text-light-orange transation'>Projects</Link></li>
-                  <li><Link href="/contact" className='hover:text-light-orange transation'>Contacts</Link></li>
+                  <li><Link href="#" className='hover:text-light-orange transation'>Explore</Link></li>
+                  <li><Link href="#" className='hover:text-light-orange transation'>Dashboard</Link></li>
+
                 </ul>
               </div>
             </div>

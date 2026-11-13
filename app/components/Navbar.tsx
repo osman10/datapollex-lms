@@ -2,44 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Logo from "./Logo";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
     const pathname = usePathname();
-    const [isSticky, setIsSticky] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 150) {
-                setIsSticky(true);
-            } else {
-                setIsSticky(false);
-            }
-        };
-
-        // Add scroll event listener
-        window.addEventListener("scroll", handleScroll);
-
-        // Cleanup the event listener on unmount
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     const navLinks = [
         { href: "/", label: "Home" },
-        { href: "/about", label: "About Me" },
-        { href: "/skils", label: "Skils" },
+        { href: "/tutorial", label: "Tutorial" },
+        { href: "/dashboard", label: "dashboard" },
 
     ];
 
     return (
         <div
-            className={`w-full z-50 transition-all duration-300 ${isSticky
-                ? "fixed top-0 left-0 bg-black shadow-lg py-5 translate-y-0 opacity-100"
-                : "absolute top-0 left-0 bg-transparent py-5"
-                }`}
+            className="bg-[#191A1C] py-3"
         >
             <div className="container mx-auto flex justify-between items-center px-4 lg:px-0">
                 {/* Logo  */}
@@ -73,8 +54,8 @@ const Navbar = () => {
                                 key={link.href}
                                 href={link.href}
                                 className={`transition-colors ${isActive
-                                    ? "text-dark-orange font-semibold"
-                                    : "text-white hover:text-dark-orange"
+                                    ? "text-orange-300 font-semibold"
+                                    : "text-white hover:text-orange-300"
                                     }`}
                             >
                                 {link.label}
@@ -82,6 +63,12 @@ const Navbar = () => {
                         );
                     })}
                 </motion.div>
+
+                <div className=" ">
+                    <button className="px-3 py-2 bg-orange-300 hover:bg-orange-400 transition font-bold  hover:text-grey-700">Logout</button>
+                </div>
+
+
 
                 {/* Hamburger Menu */}
                 <motion.div
@@ -115,6 +102,11 @@ const Navbar = () => {
                     </button>
                 </motion.div>
             </div>
+
+
+
+
+
             {/* Mobile Navigation */}
             <div
                 className={`md:hidden fixed top-0 right-0 z-50 bg-white w-[240px] h-screen py-4 flex flex-col justify-center items-center gap-2 shadow-2xl transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
