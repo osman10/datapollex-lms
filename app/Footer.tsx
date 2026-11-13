@@ -76,8 +76,8 @@ export default function Footer() {
                 </h3>
                 <ul className="space-y-4 text-xs text-light-grey hover:text-light-grey">
                   <li><Link href="/" className='hover:text-light-orange transation'>Home</Link></li>
-                  <li><Link href="#" className='hover:text-light-orange transation'>Explore</Link></li>
-                  <li><Link href="#" className='hover:text-light-orange transation'>Dashboard</Link></li>
+                  <li><Link href="/courses" className='hover:text-light-orange transation'>Courses</Link></li>
+                  <li><Link href="/dashboard" className='hover:text-light-orange transation'>Dashboard</Link></li>
 
                 </ul>
               </div>

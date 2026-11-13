@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const page = () => {
   return (
-    <div className="bg-[url('/images/bg.jpg')] bg-center bg-cover bg-whit ">
+    <div className="bg-[url('/images/bg.jpg')] bg-center bg-cover bg-white ">
       <div className="h-full w-full bg-white/40">
         <div className="container mx-auto px-4 py-5">
           <div className=" bg-none md:bg-[url('/images/learning.png')] md:bg-right md:bg-no-repeat md:bg-[length:60%] ">
@@ -32,7 +32,7 @@ const page = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <Link href="#" className="px-3 py-2 bg-orange-300 hover:bg-orange-400 transition font-bold hover:text-grey-700">Explore more</Link>
+                  <Link href="courses" className="px-3 py-2 bg-orange-300 hover:bg-orange-400 transition font-bold hover:text-grey-700">Explore courses</Link>
                 </motion.div>
               </div>
             </div>
