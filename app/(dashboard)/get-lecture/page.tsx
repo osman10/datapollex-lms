@@ -180,7 +180,7 @@ const AdminLecturesPage = () => {
                                                 <td className="py-4 px-6 font-bold text-slate-900">
                                                     ${lecture.price}
                                                 </td>
-                                                <td className="py-4 px-6 text-right space-x-2">
+                                                <td className="flex items-center gap-1 py-4 px-6 text-right space-x-2">
                                                     <button
                                                         onClick={() => handleEditClick(lecture)}
                                                         className="px-3 py-1.5 bg-orange-200 hover:bg-orange-300 text-slate-900 text-xs font-semibold rounded-lg transition cursor-pointer"
