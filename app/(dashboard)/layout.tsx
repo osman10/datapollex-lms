@@ -1,15 +1,23 @@
 import { type ReactNode } from "react";
+import { Suspense } from "react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "../lib/auth";
 import DashboardSidebar from "../components/DashboardSidebar";
 
-export default async function DashboardLayout({ children }: { children: ReactNode }) {
-  // Await headers once if required by your Next.js version, or let Better Auth read them
+export default function DashboardLayout({ children }: { children: ReactNode }) {
+  return (
+    <Suspense fallback={<main className="min-h-screen bg-white" />}>
+      <AuthenticatedDashboardLayout>{children}</AuthenticatedDashboardLayout>
+    </Suspense>
+  );
+}
+
+async function AuthenticatedDashboardLayout({ children }: { children: ReactNode }) {
   const requestHeaders = await headers();
-  
-  const session = await auth.api.getSession({ 
-    headers: requestHeaders 
+
+  const session = await auth.api.getSession({
+    headers: requestHeaders,
   });
 
   if (!session) {
