@@ -133,7 +133,7 @@ export default function LectureForm() {
             required
             value={formData.title}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="e.g. Advanced Next.js Architecture"
           />
         </div>
@@ -146,7 +146,7 @@ export default function LectureForm() {
             rows={3}
             value={formData.description}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="Detailed overview of the lecture..."
           />
         </div>
@@ -160,7 +160,7 @@ export default function LectureForm() {
               required
               value={formData.videoUrl}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="https://www.youtube.com/watch?v=..."
             />
           </div>
@@ -172,7 +172,7 @@ export default function LectureForm() {
               required
               value={formData.category}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
             >
               {CATEGORIES.map((cat) => (
                 <option key={cat} value={cat}>
@@ -194,7 +194,7 @@ export default function LectureForm() {
               step="0.01"
               value={formData.price}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="0.00"
             />
           </div>
@@ -206,7 +206,7 @@ export default function LectureForm() {
               accept="image/*"
               required
               onChange={handleFileChange}
-              className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+              className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-400 hover:file:bg-orange-100 cursor-pointer"
             />
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function LectureForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-200 disabled:opacity-50 cursor-pointer"
+          className="w-full py-2 px-4 bg-orange-300 hover:bg-orange-400 text-white font-medium rounded-md transition duration-200 disabled:opacity-50 cursor-pointer"
         >
           {loading ? 'Processing & Uploading...' : 'Create Lecture'}
         </button>
