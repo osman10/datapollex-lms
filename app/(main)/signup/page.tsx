@@ -24,14 +24,14 @@ export default function SignupPage() {
           email,
           password,
           name,
-          callbackURL: "/login", // Where to redirect after successful signup
+          callbackURL: "/signin", // Where to redirect after successful signup
         },
         {
           onRequest: () => {
             setLoading(true);
           },
           onSuccess: () => {
-            router.push("/login");
+            router.push("/signin");
           },
           onError: (ctx) => {
             setError(ctx.error.message || "Something went wrong during sign up.");
@@ -45,24 +45,18 @@ export default function SignupPage() {
     }
   };
 
-  const handleSocialSignUp = async (provider: "google" | "github") => {
-    await authClient.signIn.social({
-      provider,
-      callbackURL: "/dashboard",
-    });
-  };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 bg-white p-8 shadow-xl rounded-2xl border border-gray-100">
+      <div className="w-full max-w-md space-y-8 bg-white p-8 shadow-xl  border border-gray-100">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
             Create an account
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Or{" "}
+            
             <Link
-              href="/login"
+              href="/signin"
               className="font-medium text-orange-300 hover:text-orange-400"
             >
               sign in to your existing account
@@ -71,13 +65,13 @@ export default function SignupPage() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-md text-sm text-red-700">
+          <div className="bg-red-50 border-l-4 border-red-400 p-4  text-sm text-red-700">
             {error}
           </div>
         )}
 
         <form className="mt-8 space-y-6" onSubmit={handleCredentialsSignUp}>
-          <div className="space-y-4 rounded-md shadow-sm">
+          <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Full Name
@@ -87,7 +81,7 @@ export default function SignupPage() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
                 placeholder="John Doe"
               />
             </div>
@@ -100,7 +94,7 @@ export default function SignupPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
                 placeholder="you@example.com"
               />
             </div>
@@ -113,7 +107,7 @@ export default function SignupPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-400 focus:border-orange-400 sm:text-sm"
                 placeholder="••••••••"
               />
             </div>
@@ -123,7 +117,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-orange-300 hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 disabled:opacity-50 transition-colors"
+              className="w-full flex justify-center py-2.5 px-4 border border-transparent shadow-sm text-sm font-medium text-white bg-orange-300 hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 disabled:opacity-50 transition-colors"
             >
               {loading ? "Creating account..." : "Sign up"}
             </button>

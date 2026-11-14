@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { authClient } from '../../lib/auth-client';
+import Link from 'next/link';
 
 export default function LoginPage() {
 	const [email, setEmail] = useState('');
@@ -33,10 +34,11 @@ export default function LoginPage() {
 
 	return (
 		<main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12">
-			<section className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+			<section className="w-full max-w-md  border border-slate-200 bg-white p-8 shadow-sm">
 				<div className="mb-8 text-center">
 					<h1 className="text-3xl font-semibold tracking-tight text-slate-900">Welcome back</h1>
 					<p className="mt-2 text-sm text-slate-600">Sign in to your account to continue.</p>
+					
 				</div>
 
 				<form onSubmit={handleSubmit} className="space-y-5">
@@ -52,7 +54,7 @@ export default function LoginPage() {
 							required
 							value={email}
 							onChange={(event) => setEmail(event.target.value)}
-							className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+							className="w-full  border border-slate-300 px-3 py-2.5 text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
 							placeholder="you@example.com"
 						/>
 					</div>
@@ -69,13 +71,13 @@ export default function LoginPage() {
 							required
 							value={password}
 							onChange={(event) => setPassword(event.target.value)}
-							className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+							className="w-full  border border-slate-300 px-3 py-2.5 text-slate-900 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-blue-100"
 							placeholder="Enter your password"
 						/>
 					</div>
 
 					{error && (
-						<p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+						<p role="alert" className=" bg-red-50 px-3 py-2 text-sm text-red-700">
 							{error}
 						</p>
 					)}
@@ -83,11 +85,12 @@ export default function LoginPage() {
 					<button
 						type="submit"
 						disabled={isLoading}
-						className="w-full rounded-lg bg-orange-300 px-4 py-2.5 font-medium text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+						className="w-full bg-orange-300 px-4 py-2.5 font-medium text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
 					>
 						{isLoading ? 'Signing in…' : 'Sign in'}
 					</button>
 				</form>
+				<p className='mt-2 text-gray-400'>Or, Don't have an account? <Link href="/signup" className='text-orange-300 hover:text-orange-400 transition'>Signup</Link></p>
 			</section>
 		</main>
 	);

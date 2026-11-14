@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./Logo";
 import { motion } from "framer-motion";
+import SigninStatus from "./SigninStatus";
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -14,7 +15,7 @@ const Navbar = () => {
     const navLinks = [
         { href: "/", label: "Home" },
         { href: "/courses", label: "Courses" },
-        { href: "/admin", label: "Dashboard" },
+        { href: "/get-lecture", label: "Dashboard" },
 
     ];
 
@@ -64,9 +65,8 @@ const Navbar = () => {
                     })}
                 </motion.div>
 
-                <div className=" ">
-                    <button className="px-3 py-2 bg-orange-300 hover:bg-orange-400 transition font-bold  hover:text-grey-700">Logout</button>
-                </div>
+                {/* Signin or signup button */}
+                <SigninStatus/>
 
 
 
